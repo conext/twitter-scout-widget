@@ -1,0 +1,81 @@
+<Module>
+    <ModulePrefs 
+        title="Twitter Scout Widget" 
+        title_url="https://github.com/conext/twitter-scout" 
+        directory_title="Dir" 
+        description="A widget that gives users some Twitter insight." 
+        screenshot="http://i.imgur.com/HXAwVPL.jpg" 
+        thumbnail="http://i.imgur.com/HXAwVPL.jpg" 
+        category="tools" 
+        category2="productivity" 
+        author="Cloud Identity Limited - http://www.cloudidentity.co.uk" 
+        author_email="info@cloudidentity.co.uk">
+
+        <Require feature="setprefs"/>
+        <Require feature="dynamic-height"/>
+        <Require feature="opensocial-2.5"/>
+        <Require feature="osapi"/>
+        <Require feature="views"/>
+        <Require feature="resources"/> 
+       
+    </ModulePrefs>
+
+    <!-- Default view -->
+    <Content view="default" type="html">
+    <![CDATA[
+
+    <!-- "<link> tags should only appear in <head> .. ;)" -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400&subset=latin,latin-ext,cyrillic-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://twitter-widget.identitylabs.org/flair.css"></link>
+    <script type="text/javascript" src="https://twitter-widget.identitylabs.org/scriptage.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/placemarker/jQuery-MD5/master/jquery.md5.js"></script>
+    <script type="text/javascript">
+        gadgets.util.registerOnLoadHandler(entry);
+    </script>
+
+    <div id="splash">
+        &nbsp;
+    </div>
+    <div id="content">
+        <div id="twitterbar">
+            <img src="https://twitter.com/images/resources/twitter-bird-dark-bgs.png">
+            <!-- Twitter share button comes in. -->
+            <a href="https://twitter.com/intent/tweet?button_hashtag=conext" class="twitter-hashtag-button" data-size="large" data-related="maligree">Tweet #conext</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            <!-- Twitter button leaves. -->
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="messagebox">
+            <div id="mbox_title">
+            _
+            </div>
+            <div id="mbox_description">
+            _
+            </div>
+        </div> 
+
+        <div id="feed">
+        </div>
+    </div>
+
+    <!-- model, to be cloned -->
+    <!-- not using id since jquery duplicates it anyway, fu -->
+    <div class="entry clone-model">
+        <div class="avatar">
+            <img src="#">
+        </div>
+        <div class="post">
+            <div class="post-author">
+            author
+            </div>
+            <div class="post-content">
+            content
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div> 
+    ]]>
+    </Content>
+</Module>

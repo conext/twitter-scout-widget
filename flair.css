@@ -1,0 +1,104 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400&subset=latin,latin-ext,cyrillic-ext);
+
+#content {
+    display: none;
+}
+
+#twitterbar {
+    background-color: #9AE4E8;
+    min-height: 20px;
+    color: #fff;
+}
+
+#twitterbar img {
+    width: 30px;
+    height: 30px;
+    display: block;
+    float: left;
+}
+
+/* Specifically for Twitter's share button. */
+#twitterbar iframe {
+    display: block;
+    float: right;
+    margin-top: 2px;
+    margin-right: 4px;
+    margin-bottom: 2px;
+}
+
+.twitter-hashtag-button {
+    text-align: right;
+}
+
+#splash {
+    background-image: url('https://twitter.com/images/resources/twitter-bird-white-on-blue.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #00abf0;
+    height: 100%;
+    width: 100%;
+}
+
+.clearfix {
+    clear: both;
+}
+
+#messagebox {
+    margin-top: 50px;
+    text-align: center;
+    display: none;
+}
+
+#mbox_description {
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    font-weight: 300;
+}
+
+#mbox_title {
+    font-family: 'Open Sans', sans-serif;
+}
+
+#ht {
+    font-family: 'Open Sans', sans-serif;
+    
+
+}   
+
+#feed {
+    display: none;
+}
+
+.entry {
+    font-family: 'Open Sans', sans-serif; 
+    font-size: 13px;
+    border-bottom: 1px dotted #ccc;
+}
+
+div.avatar {
+    float: left;
+}
+
+div.post {
+    float: left;
+}
+
+div.post-author {
+    font-weight: bold;
+    padding: 4px;
+}
+
+div.post-content {
+    padding: 4px;
+}
+
+div.avatar img {
+    width: 40px;
+    height: 40px;
+    margin: 3px;
+}
+
+.clone-model {
+    display: none;
+}
+
