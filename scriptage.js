@@ -1,6 +1,11 @@
 var response;
 var dbg;
 
+function magic_spell(text) {
+    var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    return text.replace(exp,"<a href='$1'>$1</a>"); 
+}
+
 function get_hashtag() {
     return "#startupweekend";
 }
@@ -70,8 +75,9 @@ function render_results(data) {
         ne.appendTo($('#feed'));
         ne.removeClass('clone-model');
         ne.find('img').attr('src', data.results[i].profile_image_url_https);
-        ne.find('.post-author').text(data.results[i].from_user_name);
-        ne.find('.post-content').text(data.results[i].text);
+        ne.find('.author-username').text(data.results[i].from_user_name);
+        ne.find('.author-handle').text('@' + data.results[i].from_user);
+        ne.find('.post-content').html(magic_spell(data.results[i].text));
         dbg = ne.find('img');
     }
     $('#feed').show();
