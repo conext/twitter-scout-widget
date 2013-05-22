@@ -81,6 +81,7 @@ div.avatar {
 
 div.post {
     float: left;
+    width: 85%;
 }
 
 div.post-author {

@@ -71,7 +71,7 @@ function render_results(data) {
         ne.removeClass('clone-model');
         ne.find('img').attr('src', data.results[i].profile_image_url_https);
         ne.find('.post-author').text(data.results[i].from_user_name);
-        //ne.find('.post-content').text(data.results[i].text);
+        ne.find('.post-content').text(data.results[i].text);
         dbg = ne.find('img');
     }
     $('#feed').show();
