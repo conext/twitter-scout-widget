@@ -86,14 +86,14 @@ function render_results(data) {
 }
 
 function conjure_tweet_button(ht) {
+    console.log(ht);
     var proto_1 = "<a href='https://twitter.com/intent/tweet?button_hashtag=";
     var proto_2 = "' class='twitter-hashtag-button' data-size='large'>Tweet ";
     var proto_3 = "</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>";
 
     var btn = proto_1 + ht.substr(1) + proto_2 + ht + proto_3;
-    var twitter_button = document.getElementById("twitterbutton");
-    twitter_button.innerHTML = "";
-    twitter_button.innerHTML = btn;
+    $('#twitterbutton').empty();
+    $('#twitterbutton').append($(btn));
 }
 
 function entry() {
