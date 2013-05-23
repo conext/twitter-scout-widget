@@ -86,7 +86,7 @@ function render_results(data) {
         ne.removeClass('clone-model');
         ne.find('img').attr('src', data.results[i].profile_image_url_https);
         ne.find('.author-username').text(data.results[i].from_user_name);
-        ne.find('.author-handle').text('@' + data.results[i].from_user);
+        ne.find('.author-handle').html('<a class="twitter_handle" target="_blank" href="https://twitter.com/' + data.results[i].from_user + '">@' + data.results[i].from_user + '</a>') ;
         ne.find('.post-content').html(magic_spell(data.results[i].text));
         dbg = ne.find('img');
     }

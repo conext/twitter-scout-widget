@@ -109,10 +109,15 @@ div.post {
     display: none;
 }
 
-.author-handle {
+.twitter_handle {
     font-size: 12px;
     color: #aaa;
     font-weight: lighter;
+    text-decoration: none;
+}
+
+.twitter_handle:hover {
+    text-decoration: underline;
 }
 
 .post-content a {
