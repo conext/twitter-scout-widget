@@ -105,7 +105,10 @@ function conjure_tweet_button(ht) {
 function entry() {
     window.addEventListener("message", function(ev) {
         console.log(ev.data);
-        if (ev.data != current_group) {
+        if (!ev.data) {
+            console.log("No group.");
+            messagebox('No group selected.', 'Weird, I couldn\'t get your current group.');
+        } else if (ev.data != current_group) {
             current_group = ev.data;
             var group_name = ev.data.split(":");
             var hashtag = "#" + group_name[group_name.length-1]; 
