@@ -3,12 +3,18 @@ var response;
 var dbg;
 
 function magic_spell(text) {
-    var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
-    return text.replace(exp,"<a href='$1'>$1</a>"); 
+    /* Pieces commented out because I wasn't able to test it. */
+    // var hashtag_exp = /(#([a-zA-Z0-9]+))/ig;
+    var href_exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    // text = text.replace(hashtag_exp, "<a href='https://twitter.com/search?q=%23$2'>$1</a>");
+    text = text.replace(href_exp,"<a href='$1'>$1</a>"); 
+    return text;
 }
 
 function get_hashtag() {
-    return "#" + current_group;
+    var group_name = current_group.split(":");
+    var hashtag = "#" + group_name[group_name.length-1]; 
+    return hashtag;
 }
 
 function clog(message) {
@@ -100,6 +106,7 @@ function entry() {
     window.addEventListener("message", function(ev) {
         console.log(ev.data);
         if (ev.data != current_group) {
+            current_group = ev.data;
             var group_name = ev.data.split(":");
             var hashtag = "#" + group_name[group_name.length-1]; 
             /* insert twitter button */
