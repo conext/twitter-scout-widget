@@ -68,6 +68,7 @@ function render_empty_feed() {
 }
 
 function messagebox(message, description) {
+    decommission_splash();
     $('#feed').hide();
     $('#messagebox').show();
     $('#mbox_title').text(message);
