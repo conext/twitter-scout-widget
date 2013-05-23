@@ -4,8 +4,10 @@ var dbg;
 
 function magic_spell(text) {
     /* Pieces commented out because I wasn't able to test it. */
+    var hashtag_exp = /#([a-zA-Z0-9]+)/g;
     var href_exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
-    text = text.replace(href_exp,"<a href='$1'>$1</a>"); 
+    text = text.replace(href_exp, "<a href='$1'>$1</a>"); 
+    text = text.replace(hashtag_exp, '<a href="https://twitter.com/search?q=%23$1">#$1</a>');
     return text;
 }
 
