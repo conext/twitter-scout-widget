@@ -8,7 +8,7 @@ function magic_spell(text) {
 }
 
 function get_hashtag() {
-    return "#startupweekend";
+    return "#" + current_group;
 }
 
 function clog(message) {
