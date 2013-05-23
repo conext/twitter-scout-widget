@@ -102,6 +102,8 @@ function conjure_tweet_button(ht) {
 }
 
 function entry() {
+    /* enlarge your widget. satisfy your user. */
+    gadgets.window.adjustHeight(295);
     window.addEventListener("message", function(ev) {
         console.log(ev.data);
         if (!ev.data) {
