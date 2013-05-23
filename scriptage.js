@@ -106,7 +106,7 @@ function entry() {
     window.addEventListener("message", function(ev) {
         console.log(ev.data);
         if (!ev.data) {
-            console.log("No group.");
+            clog("No group.");
             messagebox('No group selected.', 'Weird, I couldn\'t get your current group.');
         } else if (ev.data != current_group) {
             current_group = ev.data;
