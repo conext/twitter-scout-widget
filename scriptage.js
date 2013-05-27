@@ -120,6 +120,10 @@ function entry() {
             /* insert twitter button */
             conjure_tweet_button(hashtag);
             hashtag_search(hashtag);
+            setInterval(function() {
+                clog("15 seconds up. Updating feed.");
+                hashtag_search(hashtag);
+            }, 15000);        
         } else {
             clog("no changes required, same group.");
         }
