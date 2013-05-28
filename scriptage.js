@@ -91,7 +91,7 @@ function render_results(data) {
         dbg = ne.find('img');
     }
     $('#feed').show();
-    clog("exiting redner_results()");
+    clog("exiting render_results()");
 }
 
 function conjure_tweet_button(ht) {
