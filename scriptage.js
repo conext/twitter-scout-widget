@@ -80,6 +80,7 @@ function messagebox(message, description) {
 function render_results(data) {
     clog("in render_results()");
     console.log(data.results.length);
+    $('#feed').empty();
     for (var i = 0; i < data.results.length; i++) {
         var ne = $('.clone-model').clone(true); // new entry
         ne.appendTo($('#feed'));
