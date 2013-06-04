@@ -130,6 +130,6 @@ function entry() {
         }
     });
 
-    top.postMessage("let's go!", "http://portaldev.cloud.jiscadvance.biz"); 
+    top.postMessage("let's go!", top.location.origin);
 }
 
