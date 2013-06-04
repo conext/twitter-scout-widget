@@ -47,7 +47,7 @@ function default_parser(data) {
     decommission_splash();
     response = data;
     clog("in default_parser()");
-    $('#messagebox').show();
+    $('#messagebox').hide();
     if (data.results.length == 0) {
         clog("no results.");
         render_empty_feed();
