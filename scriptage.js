@@ -16,7 +16,7 @@ function magic_spell(text) {
 function get_hashtag() {
     var group_name = current_group.split(":");
     var hashtag = "#" + group_name[group_name.length-1]; 
-    return hashtag;
+    return hashtag.replace(/-/gi, '');
 }
 
 function clog(message) {
@@ -119,6 +119,7 @@ function entry() {
             current_group = ev.data;
             var group_name = ev.data.split(":");
             var hashtag = "#" + group_name[group_name.length-1]; 
+            hashtag = hashtag.replace(/-/g, ''); 
             /* insert twitter button */
             conjure_tweet_button(hashtag);
             hashtag_search(hashtag);
