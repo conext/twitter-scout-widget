@@ -123,3 +123,14 @@ div.post {
 .post-content a {
     color: #099;
 }
+
+.post-actions {
+    padding: 4px;
+    padding-top: 2px;
+    font-size: 75%;
+}
+
+.post-actions a {
+    color: #ccc;
+    margin-right: 5px;
+}
