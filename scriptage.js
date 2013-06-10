@@ -1,6 +1,7 @@
 var current_group;
 var response;
 var dbg;
+var cb; /* Codebird object */
 
 function magic_spell(text) {
     /* Pieces commented out because I wasn't able to test it. */
@@ -24,23 +25,34 @@ function clog(message) {
 }
 
 function hashtag_search(hashtag) {
-    var url = 'https://search.twitter.com/search.json?q=' + encodeURIComponent(hashtag);
-    /* X-Origin */
-    url += "&callback=?";
 
-    $.ajax(url, {
-        dataType: "json",
-        success: function(data) {
-            clog("API call succeeded.");
-            console.log(data);
-            default_parser(data);
+    cb.__call(
+        'search_tweets',
+        'q=' + encodeURIComponent(hashtag),
+        function(response) {
+            console.log(response);
+            default_parser(response);
         },
-        error: function(data) {
-            clog("Oops. API call borked.");
-            console.log(data);
-            default_parser(data);
-        },
-    });
+        true
+    );
+
+    //var url = 'https://search.twitter.com/search.json?q=' + encodeURIComponent(hashtag);
+    /* X-Origin */
+    //url += "&callback=?";
+
+    //$.ajax(url, {
+     //   dataType: "json",
+      //  success: function(data) {
+       //     clog("API call succeeded.");
+        //    console.log(data);
+         //   default_parser(data);
+        //},
+        //error: function(data) {
+         //   clog("Oops. API call borked.");
+          //  console.log(data);
+           // default_parser(data);
+        //},
+    //});
 }
 
 function default_parser(data) {
@@ -48,7 +60,7 @@ function default_parser(data) {
     response = data;
     clog("in default_parser()");
     $('#messagebox').hide();
-    if (data.results.length == 0) {
+    if (data.statuses.length == 0) {
         clog("no results.");
         render_empty_feed();
     } else {
@@ -80,16 +92,23 @@ function messagebox(message, description) {
 
 function render_results(data) {
     clog("in render_results()");
-    console.log(data.results.length);
+    console.log(data.statuses.length);
     $('#feed').empty();
-    for (var i = 0; i < data.results.length; i++) {
+    for (var i = 0; i < data.statuses.length; i++) {
         var ne = $('.clone-model').clone(true); // new entry
         ne.appendTo($('#feed'));
         ne.removeClass('clone-model');
-        ne.find('img').attr('src', data.results[i].profile_image_url_https);
-        ne.find('.author-username').text(data.results[i].from_user_name);
-        ne.find('.author-handle').html('<a class="twitter_handle" target="_blank" href="https://twitter.com/' + data.results[i].from_user + '">@' + data.results[i].from_user + '</a>') ;
-        ne.find('.post-content').html(magic_spell(data.results[i].text));
+        ne.find('img').attr('src', data.statuses[i].user.profile_image_url_https);
+        ne.find('.author-username').text(data.statuses[i].user.name);
+
+        hc = '<a class="twitter_handle" target="_blank" href="https://twitter.com/';
+        hc += data.statuses[i].user.screen_name;
+        hc += '">@';
+        hc += data.statuses[i].user.screen_name;
+        hc += '</a>';
+
+        ne.find('.author-handle').html(hc) ;
+        ne.find('.post-content').html(magic_spell(data.statuses[i].text));
         dbg = ne.find('img');
     }
     $('#feed').show();
@@ -108,6 +127,10 @@ function conjure_tweet_button(ht) {
 }
 
 function entry() {
+    /* Initialize codebird with client id & secret. Not so secret, though. */
+    cb = new Codebird;
+    cb.setConsumerKey('dxehhzPeHv5fa0kF0TWg', 'p2WnJFYxMEupZSyXsVmoDiV4hLB29LNxVukdY5P4Xo0');
+
     /* enlarge your widget. satisfy your user. */
     gadgets.window.adjustHeight(295);
     window.addEventListener("message", function(ev) {
