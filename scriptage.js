@@ -33,7 +33,7 @@ function hashtag_search(hashtag) {
             console.log(response);
             default_parser(response);
         },
-        true
+        true /* This bit makes it an app-only request. */
     );
 
 }
