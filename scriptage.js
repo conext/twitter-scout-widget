@@ -36,23 +36,6 @@ function hashtag_search(hashtag) {
         true
     );
 
-    //var url = 'https://search.twitter.com/search.json?q=' + encodeURIComponent(hashtag);
-    /* X-Origin */
-    //url += "&callback=?";
-
-    //$.ajax(url, {
-     //   dataType: "json",
-      //  success: function(data) {
-       //     clog("API call succeeded.");
-        //    console.log(data);
-         //   default_parser(data);
-        //},
-        //error: function(data) {
-         //   clog("Oops. API call borked.");
-          //  console.log(data);
-           // default_parser(data);
-        //},
-    //});
 }
 
 function default_parser(data) {
