@@ -1,5 +1,4 @@
 var current_group;
-var response;
 var dbg;
 var cb; /* Codebird object */
 
@@ -40,7 +39,6 @@ function hashtag_search(hashtag) {
 
 function default_parser(data) {
     decommission_splash();
-    response = data;
     clog("in default_parser()");
     $('#messagebox').hide();
     if (data.statuses.length == 0) {
