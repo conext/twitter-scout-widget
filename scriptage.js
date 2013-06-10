@@ -103,10 +103,10 @@ function entry() {
 
     /* enlarge your widget. satisfy your user. */
     gadgets.window.adjustHeight(295);
+
+    /* Set up a postMessage listener to get/request current group from container. */
     window.addEventListener("message", function(ev) {
-        console.log(ev.data);
         if (!ev.data) {
-            clog("No group.");
             messagebox('No group selected.', 'Weird, I couldn\'t get your current group.');
         } else if (ev.data != current_group) {
             current_group = ev.data;
@@ -125,6 +125,7 @@ function entry() {
         }
     });
 
+    /* Post any message at all to get group info from container. */
     top.postMessage("let's go!", top.location.origin);
 }
 
