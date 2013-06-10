@@ -49,7 +49,6 @@ function decommission_splash() {
 }
 
 function render_empty_feed() {
-    clog("in render_empty_feed()");
     messagebox(
         "No one tweeted.", 
         "There doesn't seem to be anything happening for <span id='ht'>" + get_hashtag() + "</span>."
@@ -65,7 +64,6 @@ function messagebox(message, description) {
 }
 
 function render_results(data) {
-    clog("in render_results()");
     console.log(data.statuses.length);
     $('#feed').empty();
     for (var i = 0; i < data.statuses.length; i++) {
@@ -86,11 +84,9 @@ function render_results(data) {
         dbg = ne.find('img');
     }
     $('#feed').show();
-    clog("exiting render_results()");
 }
 
 function conjure_tweet_button(ht) {
-    console.log(ht);
     var proto_1 = "<a href='https://twitter.com/intent/tweet?button_hashtag=";
     var proto_2 = "' class='twitter-hashtag-button' data-size='large'>Tweet ";
     var proto_3 = "</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>";
