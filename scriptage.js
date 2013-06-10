@@ -39,15 +39,8 @@ function hashtag_search(hashtag) {
 
 function default_parser(data) {
     decommission_splash();
-    clog("in default_parser()");
     $('#messagebox').hide();
-    if (data.statuses.length == 0) {
-        clog("no results.");
-        render_empty_feed();
-    } else {
-        clog("> 0 results");
-        render_results(data);
-    }
+    (data.statuses.length == 0) ? render_empty_feed() : render_results(data);
 }
 
 function decommission_splash() {
