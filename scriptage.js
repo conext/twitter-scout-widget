@@ -1,9 +1,7 @@
 var current_group;
-var dbg;
 var cb; /* Codebird object */
 
 function magic_spell(text) {
-    /* Pieces commented out because I wasn't able to test it. */
     var hashtag_exp = /#([a-zA-Z0-9]+)/g;
     var mention_exp = /@([a-zA-Z0-9]+)/g;
     var href_exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
@@ -85,7 +83,6 @@ function render_results(data) {
         ne.find('#pa-st')
             .attr('href', 'https://twitter.com/' + v.user.screen_name + '/status/' + v.id_str)
             .attr('target', '_blank');
-        dbg = ne.find('img');
     }
     $('#feed').show();
 }
