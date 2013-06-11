@@ -86,7 +86,7 @@ function render_results(data) {
             .attr('href', 'https://twitter.com/' + v.user.screen_name + '/status/' + v.id_str)
             .attr('target', '_blank');
         dbg = ne.find('img');
-    };
+    }
     $('#feed').show();
 }
 
