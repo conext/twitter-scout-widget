@@ -81,6 +81,9 @@ function render_results(data) {
 
         ne.find('.author-handle').html(hc) ;
         ne.find('.post-content').html(magic_spell(data.statuses[i].text));
+        ne.find('#pa-st')
+            .attr('href', 'https://twitter.com/' + data.statuses[i].user.screen_name + '/status/' + data.statuses[i].id_str)
+            .attr('target', '_blank');
         dbg = ne.find('img');
     }
     $('#feed').show();

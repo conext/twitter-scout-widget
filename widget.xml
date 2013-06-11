@@ -81,8 +81,6 @@
             content
             </div>
             <div class="post-actions">
-            <a href="#" id="pa-r">reply</a>
-            <a href="#" id="pa-rt">RT</a>
             <a href="#" id="pa-st">see on twitter</a>
             </div>
         </div>
