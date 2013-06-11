@@ -67,25 +67,26 @@ function render_results(data) {
     console.log(data.statuses.length);
     $('#feed').empty();
     for (var i = 0; i < data.statuses.length; i++) {
+        v = data.statuses[i];
         var ne = $('.clone-model').clone(true); // new entry
         ne.appendTo($('#feed'));
         ne.removeClass('clone-model');
-        ne.find('img').attr('src', data.statuses[i].user.profile_image_url_https);
-        ne.find('.author-username').text(data.statuses[i].user.name);
+        ne.find('img').attr('src', v.user.profile_image_url_https);
+        ne.find('.author-username').text(v.user.name);
 
         hc = '<a class="twitter_handle" target="_blank" href="https://twitter.com/';
-        hc += data.statuses[i].user.screen_name;
+        hc += v.user.screen_name;
         hc += '">@';
-        hc += data.statuses[i].user.screen_name;
+        hc += v.user.screen_name;
         hc += '</a>';
 
         ne.find('.author-handle').html(hc) ;
-        ne.find('.post-content').html(magic_spell(data.statuses[i].text));
+        ne.find('.post-content').html(magic_spell(v.text));
         ne.find('#pa-st')
-            .attr('href', 'https://twitter.com/' + data.statuses[i].user.screen_name + '/status/' + data.statuses[i].id_str)
+            .attr('href', 'https://twitter.com/' + v.user.screen_name + '/status/' + v.id_str)
             .attr('target', '_blank');
         dbg = ne.find('img');
-    }
+    };
     $('#feed').show();
 }
 
