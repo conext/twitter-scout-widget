@@ -1,6 +1,11 @@
 var current_group;
 var cb; /* Codebird object */
 
+/*** CONFIGURATION: Twitter OAuth 1.0 credentials. ***/
+var TWITTER_CONSUMER_KEY = 'dxehhzPeHv5fa0kF0TWg';
+var TWITTER_CONSUMER_SECRET = 'p2WnJFYxMEupZSyXsVmoDiV4hLB29LNxVukdY5P4Xo0';
+/*** END CONFIGURATION ***/
+
 function magic_spell(text) {
     var hashtag_exp = /#([a-zA-Z0-9]+)/g;
     var mention_exp = /@([a-zA-Z0-9]+)/g;
@@ -100,7 +105,7 @@ function conjure_tweet_button(ht) {
 function entry() {
     /* Initialize codebird with client id & secret. Not so secret, though. */
     cb = new Codebird;
-    cb.setConsumerKey('dxehhzPeHv5fa0kF0TWg', 'p2WnJFYxMEupZSyXsVmoDiV4hLB29LNxVukdY5P4Xo0');
+    cb.setConsumerKey(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET);
 
     /* enlarge your widget. satisfy your user. */
     gadgets.window.adjustHeight(295);
