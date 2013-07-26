@@ -33,7 +33,6 @@
     <script type="text/javascript" src="https://twitter-widget.identitylabs.org/codebird.js"></script>
     <script type="text/javascript" src="https://twitter-widget.identitylabs.org/scriptage.js"></script>
     <script type="text/javascript" src="https://twitter-widget.identitylabs.org/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="https://twitter-widget.identitylabs.org/jquery.md5.js"></script>
     <!-- END CONFIGURATION -->
 
     <script type="text/javascript">
