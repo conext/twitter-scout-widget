@@ -1,6 +1,6 @@
 <Module>
     <ModulePrefs 
-        title="Twitter Scout Widget" 
+        title="Twitter Widget"
         title_url="https://github.com/conext/twitter-scout" 
         directory_title="Dir" 
         description="A widget that gives users some Twitter insight." 
